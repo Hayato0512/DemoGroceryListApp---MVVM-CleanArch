@@ -8,6 +8,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.input.TextFieldValue
@@ -46,21 +47,29 @@ fun groceryListPageScreen(
          }
       }
        //hrtr.put textField
-       Text(
-          text = "hey can you see this shit?"
-       )
-       SimpleTextField(
-           modifier = Modifier.fillMaxWidth()
-       )
-        Button(onClick = {
-            viewModel.onEvent(GroceryItemsEvent.AddGroceryItem(
-                GroceryItem(
-                   title = "ahahhaha"
+        Box(
+           modifier = Modifier.fillMaxSize()
+        ){
+
+            Row(
+                modifier = Modifier.align(Alignment.BottomCenter)
+            ){
+                SimpleTextField(
+                    modifier = Modifier.fillMaxWidth(3f),
                 )
-            ))
-            //your onclick code here
-        }) {
-            Text(text = "Button")
+                Button(
+                    modifier = Modifier.width(88.dp),
+                    onClick = {
+                        viewModel.onEvent(GroceryItemsEvent.AddGroceryItem(
+                            GroceryItem(
+                                title = "ahahhaha"
+                            )
+                        ))
+                        //your onclick code here
+                    }) {
+                    Text(text = "Button")
+                }
+            }
         }
 //       TextField(
 //           value = textForTextField,
